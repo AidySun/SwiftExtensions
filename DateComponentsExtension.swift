@@ -10,6 +10,10 @@ import Foundation
 
 extension DateComponents {
     
+    func isPM() -> Bool {
+        return (self.hour != nil && self.hour! >= 12)
+    }
+    
     func isHalfHour() -> Bool {
         return isSecond(0) && (isMinute(0) || isMinute(30))
     }
