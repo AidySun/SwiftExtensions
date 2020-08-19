@@ -4,7 +4,7 @@ import UIKit
 extension UIDevice {
 
   func isRealPortait() -> Bool {
-    return UIApplication.shared.statusBarOrientation.isPortait
+    return UIApplication.shared.statusBarOrientation.isPortrait
   }
 
   func isRealLandscape() -> Bool {
