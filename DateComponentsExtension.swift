@@ -10,8 +10,16 @@ import Foundation
 
 extension DateComponents {
     
+    func hourStr() -> String { return (nil == self.hour) ? "" : "\(self.hour!)" }
+    func minStr() -> String { return (nil == self.minute) ? "" : "\(self.minute!)" }
+    func secStr() -> String { return (nil == self.second) ? "" : "\(self.second!)" }
+    
     func isPM() -> Bool {
         return (self.hour != nil && self.hour! >= 12)
+    }
+    
+    func getAMPMString() -> String {
+        ClockHelper.currentDate.isPM() ? "PM" : "AM"
     }
     
     func isHalfHour() -> Bool {
