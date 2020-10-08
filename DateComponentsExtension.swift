@@ -10,9 +10,10 @@ import Foundation
 
 extension DateComponents {
     
-    func hourValue() -> Int { return (nil == self.hour) ? 1 : self.hour! }
-    func minValue() -> Int { return (nil == self.minute) ? 1 : self.minute! }
-    func secValue() -> Int { return (nil == self.second) ? 1 : self.second! }
+    func hourStr() -> String { return (nil == self.hour) ? "" : "\(self.hour!)" }
+    func hourIn12Str() -> String { return (nil == self.hour) ? "" : "\(self.hour! > 12 ? self.hour! - 12 : self.hour!)" }
+    func minStr() -> String { return (nil == self.minute) ? "" : "\(self.minute!)" }
+    func secStr() -> String { return (nil == self.second) ? "" : "\(self.second!)" }
     
     func isPM() -> Bool {
         return (self.hour != nil && self.hour! >= 12)
