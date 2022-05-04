@@ -1,5 +1,6 @@
-
+#if !os(macOS)
 import UIKit
+#endif
 
 extension UIDevice {
 

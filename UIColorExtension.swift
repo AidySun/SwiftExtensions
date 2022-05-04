@@ -6,7 +6,9 @@
 //  Copyright © 2020 Aidy. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
+#endif
 import Foundation
 
 extension UIColor {
