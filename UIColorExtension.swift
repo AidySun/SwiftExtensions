@@ -21,7 +21,7 @@ extension UIColor {
     }
     
     class func initWithRGB(_ r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ a:  CGFloat = 1.0) -> UIColor {
-        return initWithRGB255(red: rgbValue(r), green: rgbValue(g), blue: rgbValue(b), alpha: a)
+        return initWithRGB255(red: r, green: g, blue: b, alpha: a)
     }
 }
 
