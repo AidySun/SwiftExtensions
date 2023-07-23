@@ -8,8 +8,34 @@
 
 import Foundation
 
+
+enum Category: String  {
+    case common = "COMMON"
+    case morning = "MORNING"
+    case noon = "NOON"
+    case afternoon = "AFTERNOON"
+    case evening = "EVENING"
+    case night = "NIGHT"
+    case all = ""
+}
+
 extension DateComponents {
-    
+
+    func partOfDay() -> Category {
+        if let hour = self.hour {
+            if hour >= 5 && hour <= 11 {
+                return .morning
+            } else if hour > 11 && hour <= 13 {
+                return .noon
+            } else if hour > 13 && hour <= 17 {
+                return .afternoon
+            } else if hour > 17 && hour <= 20 {
+                return .evening
+            }
+        }
+        return .night
+    }
+
     func hourStr() -> String { return (nil == self.hour) ? "" : "\(self.hour!)" }
     func hourIn12Str() -> String { return (nil == self.hour) ? "" : "\(self.hour! > 12 ? self.hour! - 12 : self.hour!)" }
     func minStr() -> String { return (nil == self.minute) ? "" : "\(self.minute!)" }
@@ -42,5 +68,6 @@ extension DateComponents {
     private func isSecond(_ m: Int) -> Bool {
         return (self.second == m)
     }
-    
+
+
 }
