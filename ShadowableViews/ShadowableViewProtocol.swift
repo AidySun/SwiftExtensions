@@ -1,33 +1,38 @@
 //
-//  ShadowButton.swift
-//  SwiftExtensions  
+//  ShadowableViewProtocol.swift
+//  TCFKCalculator.swift
 //
 //  Created by Aidy Sun on 2023/10/10.
+//  Copyright © 2023 SZH. All rights reserved.
 //
 
 import UIKit
 
-class ShadowButton: UIButton {
+protocol ShadowableViewProtocol {
+    var shadowOpacity: CGFloat { get set }
+    var shadowRadius: CGFloat { get set }
+    var shadowOffset: CGSize { get set }
+    var shadowColor: UIColor? { get set }
 }
 
-@IBDesignable extension ShadowButton {
+extension ShadowableViewProtocol where Self: UIView {
 
-    @IBInspectable var shadowRadius: CGFloat {
+    var shadowRadius: CGFloat {
         get { return layer.shadowRadius }
         set { layer.shadowRadius = newValue }
     }
 
-    @IBInspectable var shadowOpacity: CGFloat {
+    var shadowOpacity: CGFloat {
         get { return CGFloat(layer.shadowOpacity) }
         set { layer.shadowOpacity = Float(newValue) }
     }
 
-    @IBInspectable var shadowOffset: CGSize {
+    var shadowOffset: CGSize {
         get { return layer.shadowOffset }
         set { layer.shadowOffset = newValue }
     }
 
-    @IBInspectable var shadowColor: UIColor? {
+    var shadowColor: UIColor? {
         get {
             guard let cgColor = layer.shadowColor else {
                 return nil
