@@ -16,4 +16,9 @@ extension NSObject {
         let newItems = "[\(self.classForCoder)] : \(items)"
         print(newItems)
     }
+
+    var memoryAddress: String {
+        let addr = Unmanaged.passUnretained(self).toOpaque()
+        return String(format: "%p", Int(bitPattern: addr))
+    }
 }
